@@ -1,4 +1,4 @@
-FROM golang:1.6
+FROM go-env:latest
 RUN mkdir -p /opt/myweb
 RUN go build -o main
 ENV REDIS_HOST redis
