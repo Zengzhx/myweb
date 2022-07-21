@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  myweb:
+    build: .
+    ports:
+      - "80:80"
+    environment:
+        REDIS_HOST: "rd"
+        REDIS_PORT: 6379
+    depends_on:
+      - "rd"
+  rd:
+    image: redis:latest
+    expose:
+      - 6379
+    volumes:
+      - /data/myweb/redis:/etc/redis
