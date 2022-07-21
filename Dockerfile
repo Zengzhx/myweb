@@ -1,7 +1,8 @@
 FROM go-env:latest
-RUN mkdir -p /opt/myweb
-RUN go build -o main
 ENV REDIS_HOST redis
 ENV REDIS_PORT 6379
+RUN mkdir -p /opt/myweb
 WORKDIR /opt/myweb
+COPY . .
+RUN go build -o main
 CMD ["./main"]
