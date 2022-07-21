@@ -38,7 +38,7 @@ func main() {
 }
 
 func handlerHello(res http.ResponseWriter, req *http.Request) {
-	fmt.Printf("[%v] - I'm Recive ", req.Method)
+	fmt.Printf("[%v] - I'm Recive \n", req.Method)
 	iniCmd := rd.Incr("views")
 	if iniCmd.Err() != nil {
 		fmt.Fprintf(os.Stderr, "访问量统计失败- %v\n", iniCmd.Err())
